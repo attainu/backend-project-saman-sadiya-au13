@@ -7,11 +7,8 @@ body {
     background-color: #192537!important;
     }
   
-  .brand-wrapper {
-    padding-top: 7px;
-    padding-bottom: 8px; }
     .brand-wrapper .logo {
-      height: 99px;
+      height: 90px;
       background-color: #192537;
       border-radius: 8px;
       padding-top: 12px;
@@ -23,7 +20,7 @@ body {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
-    padding: 68px 100px;
+    padding: 30px 100px;
     background-color: #fff; }
     @media (max-width: 991px) {
       .login-section-wrapper {
@@ -99,7 +96,7 @@ body {
   
   .login-img {
     width: 100%;
-    height: 100vh;
+    max-height: 100vh;
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: left;
