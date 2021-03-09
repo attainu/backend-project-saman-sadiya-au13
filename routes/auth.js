@@ -23,11 +23,11 @@ router.post(
 );
 
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Express' });
+    res.render('login', { title: 'Login' });
 });
 
 router.get('/signup', function(req, res, next) {
-    res.render('signup', { title: 'Express' });
+    res.render('signup', { title: 'Signup' });
 });
 
 router.get("/signout", signout);

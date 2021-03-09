@@ -1,11 +1,14 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require('cors');
+const hbs = require('hbs');
+const fileUpload = require('express-fileupload');
+var methodOverride = require('method-override');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -20,26 +23,44 @@ mongoose.connect(process.env.DATABASE, {
   console.log(`DB NOT CONNECTED :( `);
 });
 
+const cloudinary = require('cloudinary').v2;
+
+
+cloudinary.config({
+  cloud_name: 'sa3m6an9',
+  api_key: '643338921389265',
+  api_secret: 'yUlGjfn6VLm1w81VUGfdTUbtxaI'
+})
 
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
+var productRouter = require('./routes/product');
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+app.use(methodOverride('_method'))
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use('*', cloudinaryConfig);
+app.use(fileUpload({
+  useTempFiles : true,
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(__dirname + '/views/partials/');
+hbs.registerHelper('isdefined', function (value) {
+  return value === 'Login' || value === 'Signup' ;
+});
 
 app.use('/auth', authRouter);
 app.use('/', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/product', productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
