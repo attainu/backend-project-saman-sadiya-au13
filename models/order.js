@@ -7,7 +7,7 @@ const ProductCartSchema = new mongoose.Schema({
     ref: "Product"
   },
   name: String,
-  count: Number,
+  quantity: Number,
   price: Number
 });
 
@@ -22,7 +22,7 @@ const OrderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: "Recieved",
-      enum: ["Cancelled", "Delivered", "Shipped", "Processing", "Recieved"]
+      enum: ["Cancelled", "Delivered", "Processing", "Recieved"]
     },
     updated: Date,
     user: {

@@ -1,4 +1,5 @@
 var express = require('express');
+const { getAllTrackingOrders } = require('../controllers/order');
 const { getAllProductsAdminPage, getProductById } = require('../controllers/products');
 var router = express.Router();
 
@@ -17,9 +18,7 @@ router.get('/todayorder', function(req, res) {
   res.render('todayorder', { title: 'Admin' });
 });
 
-router.get('/trackorder', function(req, res) {
-  res.render('trackorder', { title: 'Admin' });
-});
+router.get('/trackorder', getAllTrackingOrders);
 
 router.get('/searchorders', function(req, res) {
   res.render('searchorders', { title: 'Admin' });

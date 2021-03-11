@@ -27,7 +27,7 @@ fetch("/auth/signin", {
         window.location.replace('/admin')
     }
     if(data && data.user && data.user.role === 0) {
-        window.location.replace('/')
+        window.location.replace('/user')
     }
     if(data && data.error) {
         const errorBox = document.querySelector('#error-box');

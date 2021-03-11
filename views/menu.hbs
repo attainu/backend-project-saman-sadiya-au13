@@ -29,20 +29,24 @@
 <main class="container">
     <div class="row my-3">
         {{#each products}}
-        <div class="col-3">
+        <div class="col-md-6 col-lg-4 mb-3">
         <div class="card box-shadow" style="width: 16rem;">
             <img class="card-img-top" src={{this.uploadImageUrl}} alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">{{this.name}}</h5>
+            <h5 class="card-title"><b>{{this.name}}</b></h5>
             <p class="card-text">{{this.description}}</p>
+            <p class="card-text">{{this.category}}</p>
+            <div class="card-text bg-light d-flex justify-content-between mb-2">
+                <div>Price</div>
+                <div>₹{{this.price}}</div>
+            </div>
+
+
 
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group mr-2" role="group">
                     <a class="btn btn-secondary" href="/product/updateform/{{this._id}}" role="button">Update</a>
                 </div>
-
-
-
                 <div class="btn-group mr-2" role="group">
                     <form id="contact-form" method="POST"  action="/product/delete/{{this._id}}?_method=DELETE">
                             <input type="hidden" name="_method" value="DELETE">

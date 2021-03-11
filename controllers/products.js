@@ -166,5 +166,17 @@ exports.getAllProductsAdminPage = (req, res) => {
     });
 };
 
+exports.getAllProductsUserPage = (req, res) => {
+  Product.find()
+    .exec((err, products) => {
+      if (err) {
+        return res.status(400).json({
+          error: "NO product FOUND"
+        });
+      }
+      // res.json(products);
+      res.render('user', { title: 'User', products: products });
+    });
+};
 
 

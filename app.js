@@ -36,6 +36,9 @@ var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var productRouter = require('./routes/product');
+var cartRouter = require('./routes/cart');
+var orderRouter = require('./routes/order');
+
 
 
 // view engine setup
@@ -56,11 +59,19 @@ hbs.registerPartials(__dirname + '/views/partials/');
 hbs.registerHelper('isdefined', function (value) {
   return value === 'Login' || value === 'Signup' ;
 });
+hbs.registerHelper('isUser', function (value) {
+  return value === 'User';
+});
+hbs.registerHelper('isCartContainProducts', function () {
+  return value === 'User';
+});
 
 app.use('/auth', authRouter);
 app.use('/', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
+app.use('/cart', cartRouter);
+app.use('/order', orderRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

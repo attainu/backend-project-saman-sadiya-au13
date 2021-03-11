@@ -55,26 +55,26 @@
     font-size: 42px;
 }
 
-.fa-check {
-    /* background-color: rgb(3, 42, 65); */
-    color: white;
+.fa-check, .fa-spinner, .fa-exclamation-triangle, .fa-bullhorn, .fa-calendar-check, .fa-wallet, .fa-rupee-sign {
     font-size: 42px;
-
-}
-/* #forcolor{
-    background-color: rgb(7, 62, 94);
 }
 
-.pricing-card-title{
-    color: white;
-}
-
-.text-muted{
-    color: white;
-} */
-
-.card:hover{
+.card-s:hover{
     background-color: rgb(7, 62, 94);
     color: white;
     transition: all .2s ease;
+}
+
+.thead-dark{
+    background-color: #192537 !important;
+}
+
+.btn-secondary{
+    background-color: #192537 !important;
+}
+
+#cart, #order{
+    background-color: transparent;
+    border: none;
+    color: #d8d8d8;
 }
