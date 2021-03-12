@@ -16,6 +16,7 @@
 - Mongoose unique validator.
 - Crypto.
 - Javascript.
+- DOM manipulation.
 - Template engine (hbs).
 - Css/Bootstrap.
 - Express file-upload.
