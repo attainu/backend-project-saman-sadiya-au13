@@ -1,12 +1,10 @@
 var express = require('express');
-const { getAllTrackingOrders } = require('../controllers/order');
+const { getAllTrackingOrders, getAdminDashboard } = require('../controllers/order');
 const { getAllProductsAdminPage, getProductById } = require('../controllers/products');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  res.render('admin', { title: 'Admin' });
-});
+router.get('/', getAdminDashboard);
 
 router.get('/menu', getAllProductsAdminPage);
 

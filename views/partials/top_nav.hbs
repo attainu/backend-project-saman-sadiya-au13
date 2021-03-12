@@ -9,7 +9,7 @@
             <li><a href="/user">Menu</a></li>
             <li><button id="order">Order details</button></li>
             <li><button id="cart"><i class="fas fa-cart-arrow-down mr-1"></i>Cart</button></li>
-            <li><a href="#">Logout</a></li>
+            <li><button id="logout">Logout</a></li>
         </ul>
     </div>
     {{else}}
@@ -20,9 +20,10 @@
             <li><a href="/order/order/all">All Orders</a></li>
             {{!-- <li><a href="/admin/searchorders">Search Orders</a></li> --}}
             <li><a href="/admin/trackorder">Update Orders</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><button id="logout">Logout</a></li>
         </ul>
     </div>
     {{/if}}
 {{/if}}
 </div>
+<script src="/javascripts/topnav.js"></script>

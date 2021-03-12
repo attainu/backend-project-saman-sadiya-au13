@@ -72,6 +72,28 @@ exports.getAllOrders = (req, res) => {
     });
 };
 
+exports.getAdminDashboard = (req, res) => {
+  Order.find()
+    .exec((err, orders) => {
+      if (err) {
+        return res.status(400).json({
+          error: "No orders found in DB"
+        });
+      }
+      // res.json(order)
+      // ["Cancelled", "Delivered", "Processing", "Recieved"]
+      const recievedOrder = orders.filter((order) => order.status === "Recieved");
+      const cancelledOrder = orders.filter((order) => order.status === "Cancelled");
+      const deliveredOrder = orders.filter((order) => order.status === "Delivered");
+      const processingOrder = orders.filter((order) => order.status === "Processing");
+      const totalOrder = orders.length;
+
+      res.render('admin', { title: 'Admin', recieved: recievedOrder.length, totalOrder: totalOrder,
+     cancelled: cancelledOrder.length, delivered: deliveredOrder.length, processing: processingOrder.length,
+     });
+    });
+};
+
 exports.getAllTrackingOrders = (req, res) => {
   Order.find()
     .populate("user", "_id name email")

@@ -13,7 +13,7 @@ var methodOverride = require('method-override');
 var app = express();
 var port = process.env.PORT || 3000;
 // Mongo Db connection
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect('mongodb+srv://saman:9939105936@cluster0.f3mwv.mongodb.net/boxninedb?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true

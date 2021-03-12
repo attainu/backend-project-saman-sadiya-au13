@@ -5,6 +5,17 @@
 //     console.log(cartBtn);
 // }
 
+// const session = JSON.parse(localStorage.getItem('session'));
+
+
+if (!session) {
+    window.location.replace('/auth/login')
+}
+
+if(session && session.user.role === 1) {
+    window.location.replace('/admin')
+}
+
 $(".add-to-cart").on('click', function(event){
     const productName = event.target.getAttribute('data-product-name');
     const productPrice = event.target.getAttribute('data-product-price');

@@ -73,7 +73,7 @@
     background-color: #192537 !important;
 }
 
-#cart, #order{
+#cart, #order, #logout{
     background-color: transparent;
     border: none;
     color: #d8d8d8;
